@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIIMSonian and IITian Menti | Free Live Ranker Strategy Masterclass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(5, 150, 105, 0.4)' },
+                            '50%': { transform: 'scale(1.02)', boxShadow: '0 0 15px 2px rgba(5, 150, 105, 0.2)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased relative pb-20 overflow-x-hidden">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <span class="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
+                    AIIMSonian and IITian Menti
+                </span>
+                <span class="hidden md:inline-flex items-center px-3 py-1.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wide">
+                    An Elite Mentorship Initiative
+                </span>
+            </div>
+            <div class="hidden md:flex space-x-6 mr-6 items-center">
+                <a href="#benefits" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">Blueprint</a>
+                <a href="#comparison" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">Comparison</a>
+                <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">FAQ</a>
+            </div>
+            <div>
+                <a href="#hero-form" class="inline-flex items-center justify-center px-6 py-2.5 border border-slate-300 rounded-lg text-sm font-bold text-slate-800 bg-white hover:bg-slate-50 transition-all duration-200 shadow-sm">
+                    Register Free
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white pt-10 sm:pt-16 pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none -translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start relative z-10">
+            
+            <div class="order-1 lg:order-2 w-full max-w-md mx-auto lg:max-w-full lg:col-span-5 xl:col-span-5 lg:sticky lg:top-24 mb-6 lg:mb-0" id="hero-form">
+                <div class="bg-white border border-slate-200 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-6 sm:p-8">
+                    <div class="mb-8 text-center sm:text-left border-b border-slate-100 pb-6">
+                        <h2 class="text-2xl font-extrabold text-slate-900">Secure Your Access Pass</h2>
+                        <p class="text-sm text-slate-500 mt-2 font-medium">Instant verification routing securely via WhatsApp.</p>
+                    </div>
+                    
+                    <form onsubmit="handleRegistrationSubmit(event)" class="space-y-5">
+                        <div>
+                            <label for="input-name" class="block text-sm font-bold text-slate-800 mb-1.5">Full Name</label>
+                            <input type="text" id="input-name" required placeholder="Enter your full name" 
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all text-sm font-semibold shadow-sm">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="exam-selector" class="block text-sm font-bold text-slate-800 mb-1.5">Target Exam</label>
+                                <select id="exam-selector" required 
+                                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-4 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all text-sm font-semibold shadow-sm cursor-pointer">
+                                    <option value="" disabled selected>Select Exam</option>
+                                    <option value="JEE">JEE</option>
+                                    <option value="NEET">NEET</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="cohort-selector" class="block text-sm font-bold text-slate-800 mb-1.5">Class / Cohort</label>
+                                <select id="cohort-selector" required 
+                                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-4 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all text-sm font-semibold shadow-sm cursor-pointer">
+                                    <option value="" disabled selected>Select Cohort</option>
+                                    <option value="11th Class">11th Class</option>
+                                    <option value="12th Class">12th Class</option>
+                                    <option value="Dropper Cohort">Dropper Cohort</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="score-selector" class="block text-sm font-bold text-slate-800 mb-1.5">Current Mock Test Average</label>
+                            <select id="score-selector" required 
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-4 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all text-sm font-semibold shadow-sm cursor-pointer">
+                                <option value="" disabled selected>Select your score threshold</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="animate-pulse-glow w-full mt-6 py-4 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl transition-all duration-200 shadow-md flex items-center justify-center text-base sm:text-lg cursor-pointer transform hover:-translate-y-0.5 border border-transparent hover:border-emerald-400">
+                            Reserve My Free Slot via WhatsApp
+                        </button>
+                        <p class="text-xs text-center text-slate-500 font-medium mt-3">100% Free. No credit card required.</p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="order-2 lg:order-1 lg:col-span-7 xl:col-span-7 space-y-6">
+                <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-wide mb-2 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                    Live Masterclass Registration Open
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15]">
+                    Stop Rote Learning. <br class="hidden sm:inline">
+                    <span class="text-emerald-600">Master the Target Execution Strategy</span> with Rankers.
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
+                    Learn the exact active recall frameworks, mock test mistake-log audits, and time-management secrets directly from toppers who cracked India's toughest exams. 100% Free Live Masterclass.
+                </p>
+                
+                <div class="pt-6 mt-8">
+                    <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide mb-6 border-b border-slate-100 pb-3">
+                        Inside The Strategy Masterclass
+                    </h3>
+                    
+                    <div class="space-y-5">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-base font-bold text-slate-900">Personalized Execution Roadmaps</h4>
+                                <p class="text-sm text-slate-600 mt-1 font-medium leading-relaxed">Stop following generic timetables. Discover how to create highly optimized daily schedules based on your weak subjects and backlog status.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-base font-bold text-slate-900">Advanced Option Elimination Tactics</h4>
+                                <p class="text-sm text-slate-600 mt-1 font-medium leading-relaxed">Learn the 'Think-Aloud' methodology used by toppers to solve complex numericals 40% faster and avoid negative marking traps.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-base font-bold text-slate-900">Scientific Mistake-Log Analytics</h4>
+                                <p class="text-sm text-slate-600 mt-1 font-medium leading-relaxed">Master the art of isolating conceptual blindspots from careless calculation errors to consistently break past score stagnation barriers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-slate-900 py-8 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700">
+                <div class="py-2">
+                    <p class="text-3xl font-black text-white">50+</p>
+                    <p class="text-sm font-medium text-emerald-400 mt-1 uppercase tracking-wider">Elite Ranker Mentors</p>
+                </div>
+                <div class="py-2">
+                    <p class="text-3xl font-black text-white">10,000+</p>
+                    <p class="text-sm font-medium text-emerald-400 mt-1 uppercase tracking-wider">Students Guided</p>
+                </div>
+                <div class="py-2">
+                    <p class="text-3xl font-black text-white">100%</p>
+                    <p class="text-sm font-medium text-emerald-400 mt-1 uppercase tracking-wider">Proven Execution Frameworks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Identify Your Strategic Bottleneck</h2>
+            <p class="mt-4 text-slate-600 font-medium">Select your current preparation phase to see exactly what we will fix in this live masterclass.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 bg-white p-2 rounded-xl border border-slate-200 max-w-3xl mx-auto shadow-sm">
+            <button onclick="switchPainPointTab('11th')" id="tab-btn-11th" class="w-full py-3.5 text-sm font-bold rounded-lg transition-all duration-200 bg-emerald-600 text-white shadow-sm">
+                11th Class
+            </button>
+            <button onclick="switchPainPointTab('12th')" id="tab-btn-12th" class="w-full py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                12th Class
+            </button>
+            <button onclick="switchPainPointTab('dropper')" id="tab-btn-dropper" class="w-full py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                Dropper Cohort
+            </button>
+        </div>
+
+        <div class="mt-8 bg-white border border-slate-200 rounded-2xl p-8 sm:p-12 min-h-[140px] flex items-center justify-center text-center shadow-sm transition-opacity duration-300">
+            <p id="tab-content-display" class="text-lg md:text-xl font-bold text-slate-800 max-w-3xl leading-relaxed">
+                Defeating the 10th-to-11th Syllabus Shock and Concept Phobia before an unmanageable backlog builds up.
+            </p>
+        </div>
+    </section>
+
+    <section id="benefits" class="bg-white border-y border-slate-200 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">The 3-Pillar Blueprint</h2>
+                <p class="mt-4 text-lg text-slate-600 font-medium">What we will cover in this intensive, high-yield strategy session.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
+                        <span class="text-xl font-black text-emerald-600">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">The Topper Mistake-Log Audit</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Differentiate mechanical vs conceptual errors.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Build a strict review loop after every mock.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Eliminate silly mistakes entirely.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
+                        <span class="text-xl font-black text-emerald-600">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Live Think-Aloud Paper Solving</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> See exactly how a ranker approaches a paper.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Advanced option elimination tricks.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Time-attack drills for numericals.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
+                        <span class="text-xl font-black text-emerald-600">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">The Daily Discipline Map</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 font-medium">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> High-yield daily revision timelines.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Active recall frameworks.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-emerald-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Balancing backlogs without burning out.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Why Choose Elite Mentorship?</h2>
+            <p class="mt-4 text-slate-600 font-medium">Generic coaching focuses on completing the syllabus. We focus on execution and rank extraction.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="grid grid-cols-3 border-b border-slate-200 bg-slate-50">
+                <div class="p-4 sm:p-6 font-bold text-slate-900 text-sm sm:text-base">Features</div>
+                <div class="p-4 sm:p-6 font-bold text-slate-500 text-sm sm:text-base text-center border-l border-slate-200">Traditional Coaching</div>
+                <div class="p-4 sm:p-6 font-black text-emerald-700 text-sm sm:text-base text-center border-l border-emerald-200 bg-emerald-50">Our Mentorship</div>
+            </div>
+            
+            <div class="grid grid-cols-3 border-b border-slate-100">
+                <div class="p-4 sm:p-6 text-sm font-semibold text-slate-700 flex items-center">Study Plan</div>
+                <div class="p-4 sm:p-6 text-sm text-slate-500 text-center border-l border-slate-200 flex items-center justify-center">Generic for 1000s</div>
+                <div class="p-4 sm:p-6 text-sm font-bold text-slate-900 text-center border-l border-emerald-200 bg-emerald-50/30 flex items-center justify-center">100% Personalized</div>
+            </div>
+            
+            <div class="grid grid-cols-3 border-b border-slate-100">
+                <div class="p-4 sm:p-6 text-sm font-semibold text-slate-700 flex items-center">Mentors</div>
+                <div class="p-4 sm:p-6 text-sm text-slate-500 text-center border-l border-slate-200 flex items-center justify-center">Paid Counselors</div>
+                <div class="p-4 sm:p-6 text-sm font-bold text-slate-900 text-center border-l border-emerald-200 bg-emerald-50/30 flex items-center justify-center">Actual Rankers</div>
+            </div>
+            
+            <div class="grid grid-cols-3 border-b border-slate-100">
+                <div class="p-4 sm:p-6 text-sm font-semibold text-slate-700 flex items-center">Mistake Tracking</div>
+                <div class="p-4 sm:p-6 text-sm text-slate-500 text-center border-l border-slate-200 flex items-center justify-center">Left to the student</div>
+                <div class="p-4 sm:p-6 text-sm font-bold text-slate-900 text-center border-l border-emerald-200 bg-emerald-50/30 flex items-center justify-center">Scientific Audits</div>
+            </div>
+
+            <div class="grid grid-cols-3">
+                <div class="p-4 sm:p-6 text-sm font-semibold text-slate-700 flex items-center">Accountability</div>
+                <div class="p-4 sm:p-6 text-sm text-slate-500 text-center border-l border-slate-200 flex items-center justify-center">None</div>
+                <div class="p-4 sm:p-6 text-sm font-bold text-slate-900 text-center border-l border-emerald-200 bg-emerald-50/30 flex items-center justify-center">Daily Zoom Huddles</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-10 border-t border-slate-200">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+        </div>
+        <div class="space-y-4">
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+                <h4 class="text-base font-bold text-slate-900">Is this masterclass completely free?</h4>
+                <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">Yes, the live masterclass session is 100% free. Our goal is to expose serious aspirants to the right execution strategies that generic coaching institutes miss.</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+                <h4 class="text-base font-bold text-slate-900">Do I need to leave my current coaching?</h4>
+                <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">Absolutely not. We provide the 'Execution Strategy' that sits on top of your current coaching's syllabus. We teach you HOW to study what they are teaching you.</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+                <h4 class="text-base font-bold text-slate-900">Who will be conducting the session?</h4>
+                <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">The session is conducted strictly by verified rankers who have recently cracked JEE/NEET and are currently studying in top IITs and AIIMS.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-12 text-center border-t border-slate-800 pb-28 sm:pb-24">
+        <p class="text-slate-400 font-semibold text-lg">AIIMSonian and IITian Menti</p>
+        <p class="text-slate-500 text-xs mt-2">An Elite Mentorship Initiative.</p>
+        <p class="text-slate-600 text-xs mt-6">&copy; 2026 Strategy Masterclass. All rights reserved.</p>
+    </footer>
+
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-amber-50 border-t border-amber-200 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)] px-4 py-3 sm:py-4">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-center sm:text-left">
+            <p class="text-sm sm:text-base font-extrabold text-amber-900 tracking-wide">
+                <span id="countdown-text">Only 19 Slots Remaining for this Live Batch</span>
+            </p>
+            <a href="#hero-form" class="text-sm font-bold text-emerald-700 hover:text-emerald-800 underline transition-colors duration-150">
+                Register Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Form Dynamic Logic: Handling JEE vs NEET Score Options
+        const examSelector = document.getElementById('exam-selector');
+        const scoreSelector = document.getElementById('score-selector');
+
+        examSelector.addEventListener('change', function() {
+            // Reset existing options
+            scoreSelector.innerHTML = '<option value="" disabled selected>Select your score threshold</option>';
+            let optionsArray = [];
+            
+            if (this.value === 'JEE') {
+                optionsArray = ["Below 120 / 300", "120-180 / 300", "180-240 / 300", "Above 240 / 300"];
+            } else if (this.value === 'NEET') {
+                optionsArray = ["Below 450 / 720", "450-550 / 720", "550-620 / 720", "Above 620 / 720"];
+            }
+
+            // Populate newly mapped options
+            optionsArray.forEach(opt => {
+                let el = document.createElement('option');
+                el.value = opt;
+                el.textContent = opt;
+                scoreSelector.appendChild(el);
+            });
+        });
+
+        // Interactive Pain-Point Tab Switching Logic
+        const tabData = {
+            '11th': "Defeating the 10th-to-11th Syllabus Shock and Concept Phobia before an unmanageable backlog builds up.",
+            '12th': "Balancing Board Exam subjective preparation alongside Competitive Mock Test Speed Scaling and Time-Attack drills.",
+            'dropper': "Breaking past the Score Stagnation Grid and Eliminating Negative Marking Traps in Mock Papers."
+        };
+
+        function switchPainPointTab(tabKey) {
+            const displayEl = document.getElementById('tab-content-display');
+            
+            // Fade out smoothly
+            displayEl.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update content map
+                displayEl.textContent = tabData[tabKey];
+                
+                // Toggle Button styling
+                const keys = ['11th', '12th', 'dropper'];
+                keys.forEach(key => {
+                    const btn = document.getElementById(`tab-btn-${key}`);
+                    if (key === tabKey) {
+                        btn.className = "w-full py-3.5 text-sm font-bold rounded-lg transition-all duration-200 bg-emerald-600 text-white shadow-sm";
+                    } else {
+                        btn.className = "w-full py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 bg-slate-100 text-slate-700 hover:bg-slate-200";
+                    }
+                });
+                
+                // Fade in smoothly
+                displayEl.style.opacity = '1';
+            }, 150);
+        }
+
+        // WhatsApp Router Client-Side Integration (Strict formatting, ZERO EMOJIS)
+        function handleRegistrationSubmit(event) {
+            event.preventDefault();
+
+            // Extract values
+            const name = document.getElementById('input-name').value.trim();
+            const exam = document.getElementById('exam-selector').value;
+            const cohort = document.getElementById('cohort-selector').value;
+            const mockScore = document.getElementById('score-selector').value;
+
+            // Safety Validation
+            if (!name || !exam || !cohort || !mockScore) {
+                alert("Please complete all fields to secure your slot.");
+                return;
+            }
+
+            // Construct strictly formatted WhatsApp message string with markdown bolding and ZERO EMOJIS
+            const message = `*AIIMSonian and IITian Menti Pass Activated!*\nHey Team, I am ready to fix my execution strategy!\n\n*Name:* ${name}\n*Target Exam:* ${exam}\n*Class:* ${cohort}\n*Current Mock Score:* ${mockScore}\n\nLet's lock my seat for the Live Topper Masterclass!`;
+            
+            // URL Encode payload perfectly
+            const encodedText = encodeURIComponent(message);
+            
+            // Route to specified number (+918329537848)
+            const targetUrl = `https://wa.me/918329537848?text=${encodedText}`;
+
+            // Execute instant redirect
+            window.location.href = targetUrl;
+        }
+
+        // Urgency Countdown Loop
+        let remainingSlots = 19;
+        const countdownEl = document.getElementById('countdown-text');
+
+        const scarcityTimer = setInterval(() => {
+            if (remainingSlots > 4) {
+                // Decay algorithm modeling real-time slot captures
+                if (Math.random() > 0.6) {
+                    remainingSlots--;
+                    countdownEl.textContent = `Only ${remainingSlots} Slots Remaining for this Live Batch`;
+                }
+            } else {
+                clearInterval(scarcityTimer);
+            }
+        }, 8000);
+    </script>
+</body>
+</html>
